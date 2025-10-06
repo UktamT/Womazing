@@ -36,7 +36,7 @@ const Cart = () => {
         <div>
           <img src={cart.image} alt="" />
             {cart.map((item, i) => (
-              <div style={{marginBottom: '20px'}}>
+              <div key={i} style={{marginBottom: '20px'}}>
                 <div style={{display: 'flex', alignItems: 'center'}}>
                 <p onClick={()=>dispatch(removeItem(item.id))} style={{cursor: 'pointer', color: 'gray', fontSize: '27px', fontWeight: '500', paddingRight: '20px'}}>
                   x

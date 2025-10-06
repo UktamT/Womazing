@@ -18,7 +18,7 @@ const Collection = () => {
       </h2>
       <div className={styles.cards}>
         {collection.map((item) => (
-          <div>
+          <div key={item.title}>
             <img className={styles.image} src={item.image} alt="" />
             <p className={styles.name}>{item.title}</p>
             <p className={styles.price}>${item.price}</p>

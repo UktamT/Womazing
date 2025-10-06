@@ -11,7 +11,7 @@ export const filter = [
     title: 'Все1',
     price: 129,
     image: brooke,
-    id: 5,
+    id: 0,
     index: 0,
     size: ['S', 'M', 'L', 'XL'],
     color: [frameBrown, frameGrey, framePink, frameYellow],

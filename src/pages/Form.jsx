@@ -219,7 +219,7 @@ const Form = () => {
                   </div>
                   <div>
                     {cart.map((item) => (
-                      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+                      <div key={item.title} style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
                         <p style={{
                           fontSize: '17px',
                           fontWeight: '500',

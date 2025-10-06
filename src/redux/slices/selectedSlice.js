@@ -1,9 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  index: 0,
-  count: 1,
-  color: 0,
+  products: {},
 };
 
 export const selectedSlice = createSlice({
@@ -11,18 +9,39 @@ export const selectedSlice = createSlice({
   initialState,
   reducers: {
     setSelected: (state, action) => {
-      state.index = action.payload;
-    },
-    setCount: (state, action) => {
-      state.count += 1;
-    },
-    minusCount: (state, action) => {
-      if (state.count > 1) state.count -= 1;
+      const { productId, sizeIndex } = action.payload;
+      state.products[productId] = {
+        ...state.products[productId],
+        selectedSize: sizeIndex,
+      };
     },
     setSelectedColor: (state, action) => {
-      state.color = action.payload;
+      const { productId, colorIndex } = action.payload;
+      state.products[productId] = {
+        ...state.products[productId],
+        selectedColor: colorIndex,
+      };
+    },
+    setCount: (state, action) => {
+      const { productId } = action.payload;
+      const current = state.products[productId]?.count || 1;
+      state.products[productId] = {
+        ...state.products[productId],
+        count: current + 1,
+      };
+    },
+    minusCount: (state, action) => {
+      const { productId } = action.payload;
+      const current = state.products[productId]?.count || 1;
+      if (current > 1) {
+        state.products[productId] = {
+          ...state.products[productId],
+          count: current - 1,
+        };
+      }
     },
   },
 });
 
-export const { setSelected, setCount, minusCount, setSelectedColor } = selectedSlice.actions;
+export const { setSelected, setSelectedColor, setCount, minusCount } = selectedSlice.actions;
+export default selectedSlice.reducer;

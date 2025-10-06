@@ -42,8 +42,8 @@ const Magazine = () => {
       <div className={styles.cardsFlex}>
         {
         filteredItems.map((item) => (
-         <Link to={`/product/${item.index}`}>
-          <div className={styles.bottom}>
+         <Link key={item.index} to={`/product/${item.index}`}>
+          <div key={item.title} className={styles.bottom}>
             <img className={styles.image} src={item.image} alt="" />
             <p className={styles.title}>{item.title}</p>
             <p className={styles.subtitle}>${item.price}</p>
