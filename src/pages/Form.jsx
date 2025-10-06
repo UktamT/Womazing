@@ -1,8 +1,10 @@
 import React from 'react'
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 
-const Form = ({cart}) => {
+const Form = () => {
+  const cart = useSelector(state => state.cart.items)
   const navigate = useNavigate();
 
   const location = useLocation();

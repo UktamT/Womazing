@@ -1,17 +1,19 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { removeItem } from '../redux/slices/cartSlice'
+import { setDiscount} from '../redux/slices/cartSlice'
 
-const Cart = ({cart, setCart}) => {
+const Cart = () => {
   const [promo, setPromo] = React.useState('')
-  const [discount, setDiscount] = React.useState(0)
   const [promoSuccesfull, setPromoSuccesfull] = React.useState(false)
+
+  const dispatch = useDispatch();
+  const discount = useSelector(state => state.cart.discount)
+  const cart = useSelector(state => state.cart.items)
 
   const totalPrice = cart.reduce((acc, item) => acc + item.totalPrice, 0);
 
-  const removeItem = (id) => {
-    const updated = cart.filter((itemCart) => itemCart.id !== id)
-    setCart(updated)
-  } 
   return (
     <div className='container'>
       <h3 style={{margin: '150px 0 20px'}} className='cart-title'>
@@ -36,7 +38,7 @@ const Cart = ({cart, setCart}) => {
             {cart.map((item, i) => (
               <div style={{marginBottom: '20px'}}>
                 <div style={{display: 'flex', alignItems: 'center'}}>
-                <p onClick={() => removeItem(item.id)} style={{cursor: 'pointer', color: 'gray', fontSize: '27px', fontWeight: '500', paddingRight: '20px'}}>
+                <p onClick={()=>dispatch(removeItem(item.id))} style={{cursor: 'pointer', color: 'gray', fontSize: '27px', fontWeight: '500', paddingRight: '20px'}}>
                   x
                 </p>
                 <img style={{width: '100px', height: '150px'}} src={item.image} alt="" />
@@ -55,10 +57,10 @@ const Cart = ({cart, setCart}) => {
         </div>
         <button onClick={() => {
           if(promo === '123456789') {
-            setDiscount(0.2)
+            dispatch(setDiscount(0.2))
             setPromoSuccesfull(true)
           } else{
-            setDiscount(0)
+            dispatch(setDiscount(0))
             setPromoSuccesfull(false)
           }
 
