@@ -1,0 +1,77 @@
+.btn{
+  background-color: black;
+  color: white;
+  padding: 17px 55px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.btnActive{
+  background-color: white;
+  color: black;
+  padding: 17px 50px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.flex{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 120px;
+}
+
+.h{
+  margin: 200px 0 0;
+  color: rgba(0, 0, 0, 1);
+  font-size: 55px;
+  font-weight: 500;
+  line-height: 65px;
+} 
+
+.hThree{
+  color: rgba(0, 0, 0, 1);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 20px;  
+  margin-bottom: 150px;
+  padding: 20px 0 0;
+}
+
+.span{
+  color: rgba(145, 145, 145, 1);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.cardsFlex{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.image{
+  width: 367px;
+  height: 551px;
+}
+
+.bottom{
+  margin-bottom: 50px;
+}
+
+.title{
+  color: rgba(0, 0, 0, 1);  
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 23px;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.subtitle{
+  color: rgb(156, 154, 154);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: center;
+}
