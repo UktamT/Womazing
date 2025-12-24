@@ -28,7 +28,7 @@ const Season = () => {
               <img src={upper} alt="arrow" />
             </div>
             <Link to='/magazine' >
-            <button className={styles.btn}>Открыть магазинd</button>
+            <button className={styles.btn}>Открыть магазинdddd</button>
             </Link>
           </div>
         </div>
